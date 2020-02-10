@@ -9,6 +9,11 @@
   </head>
 
   <body>
+    <% if false %>
+        <%= render 'layouts/loggedin_nav' %>
+    <% else %>
+        <%= render 'layouts/unloggedin_nav' %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
