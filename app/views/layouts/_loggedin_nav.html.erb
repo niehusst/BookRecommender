@@ -1,0 +1,15 @@
+<nav class="navbar navbar-bg">
+    <a class="navbar-brand" href="/"><i class="fas fa-book"></i> BookRecommender</a>
+    <form class="form-inline">
+        <%= link_to 'Recommendations', '/recommend', class: "btn navb" %>
+        <div class="nav-btn">
+            <%= link_to 'About', '/about', class: "btn navb" %>
+        </div>
+        <div class="nav-btn">
+            <%= link_to 'Profile', '/profile', class: "btn navb" %>
+        </div>
+        <div class="nav-btn">
+            <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "btn navb" %>
+        </div>
+    </form>
+</nav>

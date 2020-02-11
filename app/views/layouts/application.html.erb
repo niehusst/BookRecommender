@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= yield(:title) %> | BookRecommender</title>
+    <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/d9650cf239.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
-    <%= yield %>
+    <% if user_signed_in? %>
+        <%= render 'layouts/loggedin_nav' %>
+    <% else %>
+        <%= render 'layouts/unloggedin_nav' %>
+    <% end %>
+    <div class="centered">
+        <%= yield %>
+    </div>
   </body>
 </html>

@@ -1,0 +1,9 @@
+<nav class="navbar navbar-bg">
+    <a class="navbar-brand" href="/"><i class="fas fa-book"></i> BookRecommender</a>
+    <form class="form-inline">
+        <%= link_to "Login", new_user_session_path, class: "btn btn-outline-primary navb" %>
+        <div class="nav-btn">
+            <%= link_to 'Sign up', '/users/sign_up', class: "btn btn-outline-success navb" %>
+        </div>
+    </form>
+</nav>

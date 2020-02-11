@@ -1,7 +1,10 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
+---
 one:
-  name: MyString
-
-two:
-  name: MyString
+  id: 1
+  email: niehusst@grinnell.edu
+  encrypted_password: "$2a$11$xuWIlN7/PUa5/aQK.cwe5ecbCfyo8mR6taYyZW5SaN1pYkf.cQK2y"
+  reset_password_token: 
+  reset_password_sent_at: 
+  remember_created_at: 
+  created_at: '2020-02-11 06:51:26.120521'
+  updated_at: '2020-02-11 06:51:26.120521'
