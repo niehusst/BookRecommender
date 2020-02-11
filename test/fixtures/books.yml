@@ -1,15 +1,10 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
+---
 one:
-  title: MyString
-  author: MyString
+  id: 1
+  title: booko
+  author: jim
   rating: 1
-  img: MyString
-  genre: MyString
-
-two:
-  title: MyString
-  author: MyString
-  rating: 1
-  img: MyString
-  genre: MyString
+  img: url_here
+  genre: genre
+  created_at: '2020-02-11 06:52:28.847945'
+  updated_at: '2020-02-11 06:52:28.847945'
