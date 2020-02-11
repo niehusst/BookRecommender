@@ -8,7 +8,9 @@ user profile.
 * [Liam Niehus-Staab](https://github.com/niehusst)
 
 ## Acknowledgements
+* Background image from [Subtle Patterns](https://www.toptal.com/designers/subtlepatterns/triangle-mosaic-pattern/).
 
+TODO:
 Things you may want to cover:
 
 * Ruby version

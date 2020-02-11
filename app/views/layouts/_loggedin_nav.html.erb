@@ -1,24 +1,15 @@
-<nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand" href="/">Our Logo</a>
+<nav class="navbar navbar-bg">
+    <a class="navbar-brand" href="/"><i class="fas fa-book"></i> BookRecommender</a>
     <form class="form-inline">
-        <a class="btn" href="/recommendation" role="button">
-            Recommendations
-        </a>
+        <%= link_to 'Recommendations', '/recommend', class: "btn navb" %>
         <div class="nav-btn">
-            <a class="btn" href="/about" role="button">
-                About
-            </a>
+            <%= link_to 'About', '/about', class: "btn navb" %>
         </div>
         <div class="nav-btn">
-            <a class="btn" href="/profile" role="button"><!-- TODO: change tab name?-->
-                Profile
-            </a>
+            <%= link_to 'Profile', '/profile', class: "btn navb" %>
         </div>
         <div class="nav-btn">
-            <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "btn" %>
-            <!--<a class="btn" href="/logout" role="button">
-                Logout
-            </a>-->
+            <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "btn navb" %>
         </div>
     </form>
 </nav>

@@ -15,6 +15,60 @@
  */
 @import "bootstrap";
 
+body {
+    background-image: image-url("triangle-mosaic.png");
+}
+
+.navbar-bg {
+    background-color: #734E4E;
+}
+
+.navbar-brand, .navbar-brand:hover, .navbar-brand:visited {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    background: transparent;
+    decoration: none;
+    text-decoration: none;
+}
+
 .nav-btn {
     padding-left: 10px;
+}
+
+a.btn {
+    border-style: solid;
+    border-color: lightblue;
+    border-width: 2px;
+}
+
+a.btn:hover {
+    background: lightblue;
+    color: white;
+}
+
+a.btn:visited {
+    text-decoration: none;
+    decoration: none;
+    color: inherit;
+}
+
+a.navb {
+    border-style: none;
+}
+
+a.navb:hover {
+    background: lightgreen;
+    color: white;
+}
+
+.navbar-brand:hover {
+    text-decoration: none;
+    background: transparent;
+}
+
+.centered {
+    text-align: center;
 }
