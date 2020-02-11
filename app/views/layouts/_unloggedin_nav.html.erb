@@ -1,11 +1,12 @@
 <nav class="navbar navbar-light bg-light">
     <a class="navbar-brand" href="/">Our Logo</a>
     <form class="form-inline">
-        <a class="btn btn-outline-primary" href="/login" role="button">
+        <%= link_to "Login", new_user_session_path, class: "btn btn-outline-primary" %>
+        <!--<a class="btn btn-outline-primary" href="/login" role="button">
             Login
-        </a>
+        </a>-->
         <div class="nav-btn">
-            <a class="btn btn-outline-success" href="/signup" role="button">
+            <a class="btn btn-outline-success" href="/users/sign_up" role="button">
                 Sign up
             </a>
         </div>

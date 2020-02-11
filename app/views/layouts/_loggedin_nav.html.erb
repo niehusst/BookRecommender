@@ -15,9 +15,10 @@
             </a>
         </div>
         <div class="nav-btn">
-            <a class="btn" href="/logout" role="button">
+            <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "btn" %>
+            <!--<a class="btn" href="/logout" role="button">
                 Logout
-            </a>
+            </a>-->
         </div>
     </form>
 </nav>
