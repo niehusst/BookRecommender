@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   resources :books
   
-  get 'about', to: 'static_pages#about'
-  get 'recommend', to: 'static_pages#recommend'
+  get '/about', to: 'static_pages#about'
+  get '/recommend', to: 'static_pages#recommend'
 #TODO: make pass books api request query in url??
   get 'recommend/book', to: 'recommendations#book_rec'
 
