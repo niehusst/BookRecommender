@@ -1,12 +1,12 @@
 <% provide(:title, "Recommend") %>
 <h1>Recommend me a book...</h1>
 <div>
-    <div>
-        <button>SURPRISE ME</button>
-        <button>OTHERS ARE READING</button>
+    <div><!-- TODO: make buttons do diff things -->
+        <%= link_to 'SURPRISE ME', '/recommend/book', class: 'btn btn-width' %>
+        <%= link_to 'OTHERS ARE READING', '/recommend/book', class: 'btn btn-width' %>
     </div>
     <div>
-        <button>MATCH ME</button>
-        <button>IN THE GENRE</button>
+        <%= link_to 'FOR ME', '/recommend/book', class: 'btn btn-width' %>
+        <%= link_to 'IN THE GENRE', '/recommend/book', class: 'btn btn-width' %>
     </div>
 </div>
