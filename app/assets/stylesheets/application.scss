@@ -39,6 +39,7 @@ a:hover {
 }
 
 a.btn {
+    background: white;
     border-style: solid;
     border-color: lightblue;
     border-width: 2px;
@@ -56,6 +57,7 @@ a.btn:visited {
 }
 
 a.navb {
+    background: transparent;
     border-style: none;
 }
 
@@ -71,4 +73,8 @@ a.navb:hover {
 
 .centered {
     text-align: center;
+}
+
+.btn-width {
+    width: 250px;
 }

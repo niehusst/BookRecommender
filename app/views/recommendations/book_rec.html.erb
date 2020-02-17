@@ -1,11 +1,11 @@
 <% provide(:title, "Recommendation") %>
-<div><!-- TODO insert stuff in here from the api result with erb stuff -->
+<div>
     <div>
         <!-- image credit https://imgur.com/gallery/cJp4uY6 -->
-        <img src="https://i.imgur.com/8u3skSq.png">
-        <h1><span id="title">Book title</span>, <span id="author">Author</span></h1>
-        <p>Description</p>
-        <label>Other people thought:</label>
+        <img src="<%= @img_link %>"> <!--"https://i.imgur.com/8u3skSq.png">-->
+        <h1><span id="title">"<%= @title %>"</span>, by <span id="author"><%= @author %></span></h1>
+        <p><%= @desc %></p>
+        <label>Other people rated it <%= @rating %>/5 stars</label>
         <ul>
            <i>*</i>
            <i>*</i>
@@ -15,8 +15,9 @@
         </ul>
     </div>
     <div>
-        <button>Nope</button>
-        <button>Already read it</button>
-        <button>Love it!</button>
+        <!-- TODO: make buttons doe diff things -->
+        <%= link_to 'Nope', '/recommend/book', class: 'btn btn-width' %>
+        <%= link_to 'Already read it', '/recommend/book', class: 'btn btn-width' %>
+        <%= link_to 'Love it!', '/recommend/book', class: 'btn btn-width' %>
     </div>
 </div
