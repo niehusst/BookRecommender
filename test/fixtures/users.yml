@@ -1,8 +1,8 @@
 ---
-one:
+user1:
   id: 1
-  email: niehusst@grinnell.edu
-  encrypted_password: "$2a$11$xuWIlN7/PUa5/aQK.cwe5ecbCfyo8mR6taYyZW5SaN1pYkf.cQK2y"
+  email: test@example.com
+  encrypted_password: <%= User.new.send(:password_digest, "securepassword") %>
   reset_password_token: 
   reset_password_sent_at: 
   remember_created_at: 
