@@ -16,10 +16,4 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
         assert_response :success
         assert_select "title", "About | #{@base_title}"
     end
-
-    test "should get recommend" do
-        get recommend_path
-        assert_response :success
-        assert_select "title", "Recommend | #{@base_title}"
-    end
 end

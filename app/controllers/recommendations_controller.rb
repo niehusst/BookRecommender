@@ -5,6 +5,11 @@ class RecommendationsController < ApplicationController
     random
   end
 
+  # GET /recommend
+  def recommend
+  end
+
+  private
   def random
     subjects = ['fantasy','science_fiction', 'mystery', 'romance', 'nonfiction', 'history', 'drama', 'thriller', 'adventure', 'poetry']
     sub = subjects.shuffle[0]

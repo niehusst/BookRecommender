@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :books
   
   get '/about', to: 'static_pages#about'
-  get '/recommend', to: 'static_pages#recommend'
+  get '/recommend', to: 'recommendations#recommend'
 #TODO: make pass books api request query in url??
   get 'recommend/book', to: 'recommendations#book_rec'
 
@@ -14,6 +14,6 @@ Rails.application.routes.draw do
   end
 
   authenticated :user do
-    root to: 'static_pages#recommend'
+    root to: 'recommendations#recommend'
   end
 end

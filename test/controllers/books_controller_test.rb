@@ -3,11 +3,23 @@ require 'test_helper'
 class BooksControllerTest < ActionDispatch::IntegrationTest
   setup do
     @book = books(:book1)
+    sign_in users(:user1)
+  end
+
+  teardown do
+    sign_out :user
   end
 
   test "should get index" do
     get books_url
     assert_response :success
+  end
+
+  test "should not get index" do
+    sign_out :user
+
+    get books_url
+    assert_redirected_to '/users/sign_in'
   end
 
   test "should get new" do
