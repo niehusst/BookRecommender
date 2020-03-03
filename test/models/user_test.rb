@@ -26,6 +26,27 @@ class UserTest < ActiveSupport::TestCase
     end
 
     test "add books to user" do
-        skip "not implemntned"
+        user = users(:user1)
+        assert_equal 1, user.books.count, "user1 didn't have 1 initial book"
+#user.books.push 
+        user.books.create({title: 'Catch-22', author: 'Joseph Heller'})
+        assert Book.find_by(title: 'Catch-22')
+        assert_equal 2, user.books.count
+    end
+
+    test "update book rating" do
+        user = users(:user1)
+        rate = 5
+       
+        assert user.books.first, "user1 didn't have 1 initial book"
+        book = user.books.first
+        book.rating = rate
+        book.save
+        assert book.valid?, "Valid rating edit invalidates book"
+        assert user.valid?, "Valid rating edit invalidates user"
+        
+        #fetch new copy from db?
+        user = users(:user1)
+        assert_equal rate, user.books.first.rating, "Reloaded user didn't have updated rating"
     end
 end
