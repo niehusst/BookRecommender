@@ -186,8 +186,8 @@ class DeviseIntegrationTest< Capybara::Rails::TestCase
         click_on 'Recommendations'
         assert_selector 'h1', text: 'Recommend me a book...'
 
-#        click_on 'Profile'
-#        assert_selector 'h1', text: 'Reading List'
+        click_on 'Profile'
+        assert_selector 'h1', text: 'Profile'
 
         within('nav') do
             find('.navbar-brand').click
