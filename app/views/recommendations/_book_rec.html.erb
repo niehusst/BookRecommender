@@ -1,8 +1,6 @@
-<% provide(:title, "Recommendation") %>
 <div>
     <div>
-        <!-- image credit https://imgur.com/gallery/cJp4uY6 -->
-        <img src="<%= @img_link %>"> <!--"https://i.imgur.com/8u3skSq.png">-->
+        <img src="<%= @img_link %>"> 
         <h1><span id="title">"<%= @title %>"</span>, by <span id="author"><%= @author %></span></h1>
         <p><%= @desc %></p>
         <label>Other people rated it <%= @rating %>/5 stars</label>
@@ -15,7 +13,7 @@
         </ul>
     </div>
     <div>
-        <!-- TODO: make buttons doe diff things -->
+        <!-- TODO: make buttons doe diff things, and repeat request from current URL!! -->
         <%= link_to 'Nope', '/recommend/book', class: 'btn btn-width' %>
         <%= link_to 'Already read it', '/recommend/book', class: 'btn btn-width' %>
         <%= link_to 'Love it!', '/recommend/book', class: 'btn btn-width' %>

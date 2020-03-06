@@ -1,16 +1,33 @@
 class RecommendationsController < ApplicationController
-  # GET /recommendation/book/
-  def book_rec
+  # GET /recommend/book/random
+  def random 
+    random_rec
+  end
+  
+  # GET /recommend/book/genre={enum}
+  def genre
     #TODO: call correct helper to set vars for view
-    random
+    random_rec
   end
 
+  # GET /recommend/book/popular
+  def popular
+    #TODO: call correct helper to set vars for view
+    random_rec
+  end
+  
+  # GET /recommend/book/match
+  def match
+    #TODO: call correct helper to set vars for view
+    random_rec
+  end
+  
   # GET /recommend
   def recommend
   end
 
   private
-  def random
+  def random_rec
     subjects = ['fantasy','science_fiction', 'mystery', 'romance', 'nonfiction', 'history', 'drama', 'thriller', 'adventure', 'poetry']
     sub = subjects.shuffle[0]
     quant = 10

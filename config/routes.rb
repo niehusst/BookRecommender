@@ -4,10 +4,14 @@ Rails.application.routes.draw do
   
   get '/about', to: 'static_pages#about'
   get '/recommend', to: 'recommendations#recommend'
-#TODO: make pass books api request query in url??
-  get 'recommend/book', to: 'recommendations#book_rec'
 
-  
+  get 'recommend/book/random', to: 'recommendations#random'
+  get 'recommend/book/popular', to: 'recommendations#popular'
+  get 'recommend/book/match', to: 'recommendations#match'
+  get 'recommend/book/genre/:genre', to: 'recommendations#genre'
+
+  get 'profile/', to: 'profile#profile'
+
 # change which page is home for loggedin and unloggedin users
   unauthenticated :user do
     root 'static_pages#home'
