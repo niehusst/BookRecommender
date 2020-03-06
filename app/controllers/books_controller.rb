@@ -25,15 +25,14 @@ class BooksController < ApplicationController
   # POST /books.json
   def create
     @book = Book.new(book_params)
-
-    respond_to do |format|
-      if @book.save
-        format.html { redirect_to @book, notice: 'Book was successfully created.' }
-        format.json { render :show, status: :created, location: @book }
-      else
-        format.html { render :new }
-        format.json { render json: @book.errors, status: :unprocessable_entity }
-      end
+    puts @book.valid?
+      
+    if @book.save
+      flash[:notice] = "Book successfully added to profile"
+      redirect_to '/'
+    else
+      flash[:alert] = "Failed to add book to profile"
+      redirect_to '/'
     end
   end
 
@@ -69,6 +68,16 @@ class BooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
-      params.require(:book).permit(:title, :author, :rating, :img, :genre)
+#      params.permit(:title, :author, :rating, :img, :genre, :description, :id, :authenticity_token)
+      user = User.find(params[:id].to_i)
+      puts user
+      book_stuff = { title: params[:title], 
+                     author: params[:author], 
+                     img: params[:img], 
+                     genre: params[:genre], 
+                     description: params[:description], 
+                     user: User.find(params[:id].to_i) }
+      
+      return book_stuff
     end
 end

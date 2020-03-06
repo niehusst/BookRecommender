@@ -1,21 +1,13 @@
 <div>
-    <div>
-        <img src="<%= @img_link %>"> 
-        <h1><span id="title">"<%= @title %>"</span>, by <span id="author"><%= @author %></span></h1>
-        <p><%= @desc %></p>
-        <label>Other people rated it <%= @rating %>/5 stars</label>
-        <ul>
-           <i>*</i>
-           <i>*</i>
-           <i>*</i>
-           <i>*</i>
-           <i>*</i>
-        </ul>
-    </div>
-    <div>
-        <!-- TODO: make buttons doe diff things, and repeat request from current URL!! -->
-        <%= link_to 'Nope', '/recommend/book', class: 'btn btn-width' %>
-        <%= link_to 'Already read it', '/recommend/book', class: 'btn btn-width' %>
-        <%= link_to 'Love it!', '/recommend/book', class: 'btn btn-width' %>
-    </div>
-</div
+    <img src="<%= @img_link %>"> 
+    <h1><span id="title">"<%= @title %>"</span>, by <span id="author"><%= @author %></span></h1>
+    <p><%= @desc %></p>
+    <label>Other people rated it <%= @rating %>/5 stars</label>
+    <ul>
+       <i>*</i>
+       <i>*</i>
+       <i>*</i>
+       <i>*</i>
+       <i>*</i>
+    </ul>
+</div>
