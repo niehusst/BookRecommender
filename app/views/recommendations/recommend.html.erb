@@ -1,12 +1,29 @@
 <% provide(:title, "Recommend") %>
 <h1>Recommend me a book...</h1>
 <div>
-    <div><!-- TODO: make buttons do diff things -->
-        <%= link_to 'SURPRISE ME', '/recommend/book', class: 'btn btn-width' %>
-        <%= link_to 'OTHERS ARE READING', '/recommend/book', class: 'btn btn-width' %>
+    <div>
+        <%= link_to 'SURPRISE ME', '/recommend/book/random', class: 'btn btn-width' %>
+        <%= link_to 'OTHERS ARE READING', '/recommend/book/popular', class: 'btn btn-width' %>
     </div>
     <div>
-        <%= link_to 'FOR ME', '/recommend/book', class: 'btn btn-width' %>
-        <%= link_to 'IN THE GENRE', '/recommend/book', class: 'btn btn-width' %>
+        <%= link_to 'FOR ME', '/recommend/book/match', class: 'btn btn-width' %>
+        <!-- TODO: make this a selector -->
+        <div class="dropdown centered">
+            <a class="btn btn-width dropbtn">
+                IN THE GENRE <i class="fas fa-caret-down"></i>
+            </a>
+            <div class="dropdown-content">
+                <%= link_to 'Fantasy', '/recommend/book/genre/fantasy' %>
+                <%= link_to 'Sci Fi', '/recommend/book/genre/science_fiction' %>
+                <%= link_to 'Mystery', '/recommend/book/genre/mystery' %>
+                <%= link_to 'Romance', '/recommend/book/genre/romance' %>
+                <%= link_to 'Nonfiction', '/recommend/book/genre/nonfiction' %>
+                <%= link_to 'History', '/recommend/book/genre/history' %>
+                <%= link_to 'Drama', '/recommend/book/genre/drama' %>
+                <%= link_to 'Thriller', '/recommend/book/genre/thriller' %>
+                <%= link_to 'Adventure', '/recommend/book/genre/adventure' %>
+                <%= link_to 'Poetry', '/recommend/book/genre/poetry' %>
+            </div>
+        </div>
     </div>
 </div>
