@@ -1,0 +1,13 @@
+<% provide(:title, "Match") %>
+<div>
+    <%= render 'recommendations/book_rec' %>
+    <div>
+        <!-- TODO: make route to right spot and pass correct page info -->
+        <%= link_to 'Nope', '/recommend/book/match', class: 'btn btn-width' %>
+        <!-- TODO: add book to profile and link to book edit page to give rating -->
+        <%= link_to 'Already read it', '/recommend/book/', class: 'btn btn-width' %>
+        <div class="pad-top">
+            <%= button_to 'Love it!', '/books', class: 'btn btn-width', method: :post, params: { title: @title, author: @author, rating: nil, img: @img_link, genre: @genre, description: @desc, id: current_user.id } %>
+        </div>
+    </div>
+</div>

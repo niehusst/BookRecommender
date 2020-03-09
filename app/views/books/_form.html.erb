@@ -11,29 +11,13 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :book_title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :author %>
-    <%= form.text_field :author, id: :book_author %>
-  </div>
+  <img src=<%= book.img %>>
+  <h3><%= book.title %></h3>
+  <h4><%= book.author %></h4>
 
   <div class="field">
     <%= form.label :rating %>
     <%= form.number_field :rating, id: :book_rating %>
-  </div>
-
-  <div class="field">
-    <%= form.label :img %>
-    <%= form.text_field :img, id: :book_img %>
-  </div>
-
-  <div class="field">
-    <%= form.label :genre %>
-    <%= form.text_field :genre, id: :book_genre %>
   </div>
 
   <div class="actions">

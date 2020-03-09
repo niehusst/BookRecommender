@@ -25,31 +25,42 @@ class RecommendationControllerTest < ActionDispatch::IntegrationTest
     test "should not get recommendation" do
         sign_out :user
 
-        get '/recommend/book'
+        get '/recommend/book/random'
         assert_redirected_to '/users/sign_in'
     end
  
     test "should get recommendation" do
-        get '/recommend/book'
+        get '/recommend/book/random'
         assert_response :success
-        assert_select "title", "Recommendation | #{@base_title}"
+        assert_select "title", "Random | #{@base_title}"
     end
  
     test "get random book" do
-        get '/recommend/book'
+        get '/recommend/book/random'
         assert_response :success
         assert_select "#title", /.+/ #assert not empty
+        assert_select 'title', "Random | #{@base_title}"
     end
  
     test "get popular book" do
-        skip "not implemented"
+        get '/recommend/book/popular'
+        assert_response :success
+        assert_select "#title", /.+/ #assert not empty
+        assert_select 'title', "Popular | #{@base_title}"
     end
  
     test "get profile matched book" do
-        skip "not implemented"
+        get '/recommend/book/match'
+        assert_response :success
+        assert_select "#title", /.+/ #assert not empty
+        assert_select 'title', "Match | #{@base_title}"
     end
  
     test "get book in genre" do
-        skip "not implemented"
+        #TODO: test all possible genre entries
+        get '/recommend/book/genre/poetry'
+        assert_response :success
+        assert_select "#title", /.+/ #assert not empty
+        assert_select 'title', "Genre | #{@base_title}"
     end
 end

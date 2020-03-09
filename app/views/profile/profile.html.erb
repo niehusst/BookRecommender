@@ -1,0 +1,24 @@
+<% provide(:title, "Profile") %>
+<h1>Profile</h1>
+<!-- user profile info container -->
+<div class="container">
+    <h3><%= current_user.email %></h3>
+    <button><%= link_to 'Edit', edit_user_registration_url(current_user) %></button>
+</div>
+<!-- book list container -->
+<h2>Your Reading List</h2>
+<div>
+    <% @books.each do |book| %>
+        <div class="container">
+            <div>
+                <img src=<%= book.img %>>
+                <div>
+                    <h3><%= book.title %></h3>
+                    <h4><%= book.author %></h4>
+                    <h6>Your rating: <%= book.rating.nil? ? '[Not rated]' : book.rating %></h6>
+                    <button><%= link_to 'Edit', edit_book_path(book) %></button>
+                </div>
+            </div>
+        </div>
+    <% end %>
+</div>
