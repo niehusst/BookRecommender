@@ -25,7 +25,6 @@ class BooksController < ApplicationController
   # POST /books.json
   def create
     @book = Book.new(book_params)
-    puts @book.valid?
       
     if @book.save
       flash[:notice] = "Book successfully added to profile"
@@ -39,14 +38,14 @@ class BooksController < ApplicationController
   # PATCH/PUT /books/1
   # PATCH/PUT /books/1.json
   def update
-    respond_to do |format|
-      if @book.update(book_params)
-        format.html { redirect_to @book, notice: 'Book was successfully updated.' }
-        format.json { render :show, status: :ok, location: @book }
-      else
-        format.html { render :edit }
-        format.json { render json: @book.errors, status: :unprocessable_entity }
-      end
+    #only for updating the rating field; nothing else can change
+    @book.rating = params[:book][:rating]
+    if @book.save
+      flash[:notice] = "Book rating sucessfully updated"
+      redirect_to '/profile'
+    else
+      flash[:alert] = "Book rating could not be updated"
+      redirect_to edit_book_path(Book.find_by(:title, book_params[:title]))
     end
   end
 
@@ -69,14 +68,12 @@ class BooksController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
 #      params.permit(:title, :author, :rating, :img, :genre, :description, :id, :authenticity_token)
-      user = User.find(params[:id].to_i)
-      puts user
       book_stuff = { title: params[:title], 
                      author: params[:author], 
                      img: params[:img], 
                      genre: params[:genre], 
                      description: params[:description], 
-                     user: User.find(params[:id].to_i) }
+                     user: current_user }
       
       return book_stuff
     end
