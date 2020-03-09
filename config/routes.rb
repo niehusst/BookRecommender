@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users do
+    get 'profile/edit' => 'devise/registration#edit', :as => :edit_user_profile
+  end
+#devise_for :users
   resources :books
   
   get '/about', to: 'static_pages#about'

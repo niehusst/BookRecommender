@@ -46,19 +46,19 @@ a:hover {
     padding-left: 10px;
 }
 
-a.btn {
+.btn {
     background: white;
     border-style: solid;
     border-color: lightblue;
     border-width: 2px;
 }
 
-a.btn:hover {
+.btn:hover {
     background: lightblue;
     color: white;
 }
 
-a.btn:visited {
+.btn:visited {
     text-decoration: none;
     decoration: none;
     color: inherit;
@@ -120,3 +120,7 @@ a.navb:hover {
   display: block;
 }
 
+/* button form fixing */ 
+.pad-top {
+  padding-top: 5px;
+}

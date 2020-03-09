@@ -48,8 +48,9 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update book" do
-    patch book_url(@book), params: { book: { author: @book.author, genre: @book.genre, img: @book.img, rating: @book.rating, title: @book.title } }
-    assert_redirected_to book_url(@book)
+    # update only updates the book rating now, so only test updating that field
+    patch book_url(@book), params: { book: { rating: @book.rating } }
+    assert_redirected_to '/profile'
   end
 
   test "should destroy book" do
