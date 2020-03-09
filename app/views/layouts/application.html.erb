@@ -15,6 +15,11 @@
     <% else %>
         <%= render 'layouts/unloggedin_nav' %>
     <% end %>
+    <% flash.each do |type, msg| %>
+        <div style="background: <%= type=='alert' ? 'red' : 'green' %>">
+            <%= msg %>
+        </div>
+    <% end %>
     <div class="centered">
         <%= yield %>
     </div>

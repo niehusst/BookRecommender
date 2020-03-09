@@ -2,12 +2,9 @@
     <img src="<%= @img_link %>"> 
     <h1><span id="title">"<%= @title %>"</span>, by <span id="author"><%= @author %></span></h1>
     <p><%= @desc %></p>
-    <label>Other people rated it <%= @rating %>/5 stars</label>
-    <ul>
-       <i>*</i>
-       <i>*</i>
-       <i>*</i>
-       <i>*</i>
-       <i>*</i>
-    </ul>
+    <% if !@rating.nil? %>
+        <label>Other people rated it <%= @rating %>/5 stars</label>
+    <% else %>
+        <label>Other people have not rated this book</label>
+    <% end %>
 </div>
