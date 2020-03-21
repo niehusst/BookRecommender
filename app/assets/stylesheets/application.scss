@@ -27,7 +27,6 @@ body {
     background-image: image-url("triangle-mosaic.png");
 }
 
-/* navbar */
 .navbar-bg {
     background-color: #734E4E;
 }
@@ -124,19 +123,4 @@ a.navb:hover {
 /* button form fixing */ 
 .pad-top {
   padding-top: 5px;
-}
-
-/* book rec style */
-.desc-box {
-  height: 100px;
-  width: auto;
-  overflow: scroll;
-  border-style: solid;
-  border-width: 1px;
-  border-color: darkgray;
-  border-radius: 5px;
-}
-
-.desc-label {
-  font-size: 0.5em;
 }
