@@ -1,10 +1,18 @@
-<div>
-    <img src="<%= @img_link %>"> 
-    <h1><span id="title">"<%= @title %>"</span>, by <span id="author"><%= @author %></span></h1>
-    <p><%= @desc %></p>
-    <% if !@rating.nil? %>
-        <label>Other people rated it <%= @rating %>/5 stars</label>
-    <% else %>
-        <label>Other people have not rated this book</label>
-    <% end %>
+<div class="container py-5">
+    <div class="card flex-row row-col-changeable">
+        <img class="fluid-image rounded-left cont-img" src="<%= @img_link %>"> 
+        <div class="d-flex flex-column flex-grow-1">
+            <div class="card-body w-100">
+                <h1><span id="title">"<%= @title %>"</span></h1>
+                <h2 class="author-color">By: <span id="author"><%= @author %></span></h2>
+                <label class="desc-label">Description</label>
+                <p class="desc-box"><%= @desc %></p>
+                <% if !@rating.nil? %>
+                    <label>Other people rated it <%= @rating %>/5 stars</label>
+                <% else %>
+                    <label>Other people have not rated this book</label>
+                <% end %>
+            </div>
+        </div>
+    </div>
 </div>
