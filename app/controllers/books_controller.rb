@@ -44,8 +44,8 @@ class BooksController < ApplicationController
       flash[:notice] = "Book rating sucessfully updated"
       redirect_to '/profile'
     else
-      flash[:alert] = "Book rating could not be updated"
-      redirect_to edit_book_path(Book.find_by(:title, book_params[:title]))
+      flash[:alert] = @book.errors[:rating].first
+      redirect_to edit_book_path(Book.find(params[:id]))
     end
   end
 
