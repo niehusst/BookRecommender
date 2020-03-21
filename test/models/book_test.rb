@@ -18,11 +18,26 @@ class BookTest < ActiveSupport::TestCase
 
     test "update book" do
         book = books(:book1)
-        book.title = "Turtles all the way down"
-        book.author = "Hank Green"
+        book.rating = 5
         book.save
         assert book.valid?, "Edited book wasn't valid"
-        assert Book.find_by(author: "Hank Green")
+        book.rating = 3.4
+        book.save
+        assert book.valid?, "decimal rating not accepted"
+        assert Book.find_by(title: "booko")
+    end
+
+    test "bad update book" do
+        book = books(:book1)
+        book.rating = -2
+        book.save
+        assert !book.valid?, "Negative rating was valid"
+        book.rating = 0
+        book.save
+        assert !book.valid?, "0 rating was valid"
+        book.rating = 6
+        book.save
+        assert !book.valid?, "too high rating accepted"
     end
 
     test "destroy book" do
