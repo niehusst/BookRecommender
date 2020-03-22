@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200306205748) do
+ActiveRecord::Schema.define(version: 20200322030556) do
 
   create_table "books", force: :cascade do |t|
     t.string "title"
@@ -33,6 +33,16 @@ ActiveRecord::Schema.define(version: 20200306205748) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "fantasy", default: 6, null: false
+    t.integer "scifi", default: 6, null: false
+    t.integer "mystery", default: 6, null: false
+    t.integer "romance", default: 6, null: false
+    t.integer "nonfiction", default: 6, null: false
+    t.integer "history", default: 6, null: false
+    t.integer "drama", default: 6, null: false
+    t.integer "thriller", default: 6, null: false
+    t.integer "adventure", default: 6, null: false
+    t.integer "poetry", default: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
