@@ -42,21 +42,21 @@ class RecommendationIntegrationTest< Capybara::Rails::TestCase
         
         click_on 'SURPRISE ME'
         assert_current_path '/recommend/book/random'
-        assert_selector 'title', text: 'Random #{@base_title}'
+        assert_title "Random #{@base_title}"
 
         visit '/'
         click_on 'FOR ME'
         assert_current_path '/recommend/book/match'
-        assert_selector 'title', text: 'Match #{@base_title}'
+        assert_title "Match #{@base_title}"
 
         visit '/'
         click_on 'OTHERS ARE READING'
         assert_current_path '/recommend/book/popular'
-        assert_selector 'title', text: 'Popular #{@base_title}'
+        assert_title "Popular #{@base_title}"
 
         visit '/'
         click_on 'Fantasy'
         assert_current_path '/recommend/book/genre/fantasy'
-        assert_selector 'title', text: 'Genre #{@base_title}'
+        assert_title "Genre #{@base_title}"
     end
 end
