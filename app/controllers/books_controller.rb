@@ -39,8 +39,77 @@ class BooksController < ApplicationController
   # PATCH/PUT /books/1.json
   def update
     #only for updating the rating field; nothing else can change
+    prev_rating = @book.rating
     @book.rating = params[:book][:rating]
+
     if @book.save
+      # update user's fav genres score
+      case @book.genre
+      when "fantasy"
+        #undo prev rating, if there was one
+        unless prev_rating.nil?
+          current_user.fantasy -= (prev_rating - 3)
+        end
+        #add score for new rating. 
+        #The (rating - 3) allows bad ratings to negatively affect fav genre score
+        current_user.fantasy = [0, current_user.fantasy + (@book.rating - 3)].max
+      when "science_fiction"
+        unless prev_rating.nil?
+          current_user.scifi -= (prev_rating - 3)
+        end
+
+        current_user.scifi = [0, current_user.scifi + (@book.rating - 3)].max
+      when "mystery"
+        unless prev_rating.nil?
+          current_user.mystery -= (prev_rating - 3)
+        end
+
+        current_user.mystery = [0, current_user.mystery + (@book.rating - 3)].max
+      when "romance"
+        unless prev_rating.nil?
+          current_user.romance -= (prev_rating - 3)
+        end
+
+        current_user.romance = [0, current_user.romance + (@book.rating - 3)].max
+      when "nonfiction"
+        unless prev_rating.nil?
+          current_user.nonfiction -= (prev_rating - 3)
+        end
+
+        current_user.nonfiction = [0, current_user.nonfiction + (@book.rating - 3)].max
+      when "history"
+        unless prev_rating.nil?
+          current_user.history -= (prev_rating - 3)
+        end
+
+        current_user.history = [0, current_user.history + (@book.rating - 3)].max
+      when "drama"
+        unless prev_rating.nil?
+          current_user.drama -= (prev_rating - 3)
+        end
+
+        current_user.drama = [0, current_user.drama + (@book.rating - 3)].max
+      when "thriller"
+        unless prev_rating.nil?
+          current_user.thriller -= (prev_rating - 3)
+        end
+
+        current_user.thriller = [0, current_user.thriller + (@book.rating - 3)].max
+      when "adventure"
+        unless prev_rating.nil?
+          current_user.adventure -= (prev_rating - 3)
+        end
+
+        current_user.adventure = [0, current_user.adventure + (@book.rating - 3)].max
+      when "poetry"
+        unless prev_rating.nil?
+          current_user.poetry -= (prev_rating - 3)
+        end
+
+        current_user.poetry = [0, current_user.poetry + (@book.rating - 3)].max
+      end
+      current_user.save()
+
       flash[:notice] = "Book rating sucessfully updated"
       redirect_to '/profile'
     else
