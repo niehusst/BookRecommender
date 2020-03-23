@@ -30,7 +30,11 @@ class BooksController < ApplicationController
       flash[:notice] = "Book successfully added to profile"
       redirect_to '/'
     else
-      flash[:alert] = "Failed to add book to profile"
+      if @book.errors[:title].include? 'has already been taken'
+        flash[:notice] = "Book was already in profile"
+      else
+        flash[:alert] = "Failed to add book to profile"
+      end
       redirect_to '/'
     end
   end
