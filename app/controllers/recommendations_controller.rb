@@ -20,8 +20,7 @@ class RecommendationsController < ApplicationController
   # GET /recommend/book/popular
   def popular
     setup
-    #TODO: call correct helper to set vars for view
-    random_rec
+    popular_rec
   end
   
   # GET /recommend/book/match
@@ -38,16 +37,10 @@ class RecommendationsController < ApplicationController
   def random_rec
     sub = @subjects.shuffle[0]
 
-    if params.include? :page
-      page = params[:page]
-    else
-      page = 1
-    end
-
     # Request made with user's IP address allows access to API from Heroku
     user_ip = request.remote_ip # assuming user is accessing from a valid IP address
-    books = GoogleBooks.search('subject:' + sub, {:count => @quant, :page => page}, user_ip)
-    book = books.to_a[(0...@quant).to_a.shuffle.first]
+    books = GoogleBooks.search('subject:' + sub, {:count => @quant, :page => 1}, user_ip).to_a
+    book = books[(0...books.size).to_a.shuffle.first]
     @title = book.title
     @author = book.authors
     @rating = book.average_rating
@@ -75,8 +68,8 @@ class RecommendationsController < ApplicationController
 
     # Request made with user's IP address allows access to API from Heroku
     user_ip = request.remote_ip # assuming user is accessing from a valid IP address
-    books = GoogleBooks.search('subject:' + sub, {:count => @quant, :page => 1}, user_ip)
-    book = books.to_a[(0...@quant).to_a.shuffle.first]
+    books = GoogleBooks.search('subject:' + sub, {:count => @quant, :page => 1}, user_ip).to_a
+    book = books[(0...books.size).to_a.shuffle.first]
     @title = book.title
     @author = book.authors
     @rating = book.average_rating
@@ -104,4 +97,32 @@ class RecommendationsController < ApplicationController
     @genre = sub
     @img_link = book.image_link(:zoom => 1)
   end
+
+  def popular_rec
+    # Request made with user's IP address allows access to API from Heroku
+    user_ip = request.remote_ip # assuming user is accessing from a valid IP address
+
+    while true
+      #randomly get subject and page
+      sub = @subjects.shuffle[0]
+      page = (0...@quant).to_a.shuffle.first
+      books = GoogleBooks.search('subject:' + sub, {:count => @quant, :page => page}, user_ip).to_a
+      i = 0
+      while i < books.size and (books[i].average_rating.nil? ? 0 : books[i].average_rating ) < 4.5
+        i += 1
+      end
+
+      if i < books.size
+        book = books[i]
+        @title = book.title
+        @author = book.authors
+        @rating = book.average_rating
+        @desc = book.description
+        @genre = sub
+        @img_link = book.image_link(:zoom => 1)
+        break
+      end
+    end
+  end
+
 end
