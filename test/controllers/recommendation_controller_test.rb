@@ -57,10 +57,68 @@ class RecommendationControllerTest < ActionDispatch::IntegrationTest
     end
  
     test "get book in genre" do
-        #TODO: test all possible genre entries
+        get '/recommend/book/genre/fantasy'
+        assert_response :success
+        assert_select "#title", /.+/ #assert not empty
+        assert_select 'title', "Genre | #{@base_title}"
+
+        get '/recommend/book/genre/science_fiction'
+        assert_response :success
+        assert_select "#title", /.+/ #assert not empty
+        assert_select 'title', "Genre | #{@base_title}"
+
+        get '/recommend/book/genre/mystery'
+        assert_response :success
+        assert_select "#title", /.+/ #assert not empty
+        assert_select 'title', "Genre | #{@base_title}"
+
+        get '/recommend/book/genre/romance'
+        assert_response :success
+        assert_select "#title", /.+/ #assert not empty
+        assert_select 'title', "Genre | #{@base_title}"
+
+        get '/recommend/book/genre/nonfiction'
+        assert_response :success
+        assert_select "#title", /.+/ #assert not empty
+        assert_select 'title', "Genre | #{@base_title}"
+
+        get '/recommend/book/genre/history'
+        assert_response :success
+        assert_select "#title", /.+/ #assert not empty
+        assert_select 'title', "Genre | #{@base_title}"
+
+        get '/recommend/book/genre/drama'
+        assert_response :success
+        assert_select "#title", /.+/ #assert not empty
+        assert_select 'title', "Genre | #{@base_title}"
+
+        get '/recommend/book/genre/thriller'
+        assert_response :success
+        assert_select "#title", /.+/ #assert not empty
+        assert_select 'title', "Genre | #{@base_title}"
+
+        get '/recommend/book/genre/adventure'
+        assert_response :success
+        assert_select "#title", /.+/ #assert not empty
+        assert_select 'title', "Genre | #{@base_title}"
+
         get '/recommend/book/genre/poetry'
         assert_response :success
         assert_select "#title", /.+/ #assert not empty
         assert_select 'title', "Genre | #{@base_title}"
+    end
+
+    test "book in genre paging" do
+        get '/recommend/book/genre/poetry/1'
+        assert_response :success
+        parsed_data = Nokogiri::HTML.parse(@response.parsed_body)
+        book1 = parsed_data.at_css('[id="title"]').text
+        
+        get '/recommend/book/genre/poetry/2'
+        assert_response :success
+        parsed_data = Nokogiri::HTML.parse(@response.parsed_body)
+        book2 = parsed_data.at_css('[id="title"]').text
+
+        assert_not_equal book1, book2
     end
 end
