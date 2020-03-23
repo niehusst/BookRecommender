@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   get 'recommend/book/random', to: 'recommendations#random'
   get 'recommend/book/popular(/:page)', to: 'recommendations#popular'
-  get 'recommend/book/match(/:page)', to: 'recommendations#match'
+  get 'recommend/book/match', to: 'recommendations#match'
   get 'recommend/book/genre/:genre(/:page)', to: 'recommendations#genre'
 
   get 'profile/', to: 'profile#profile'
