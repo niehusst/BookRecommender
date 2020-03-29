@@ -4,10 +4,7 @@
     <div>
         <div class="flex-row pad-top">
             <%= link_to 'Nope', '/recommend/book/random', class: 'btn btn-width' %>
-            <!-- add book to profile and link to book edit page to give rating -->
-            <%= button_to 'Already read it', '/recommend/book', method: :post, params: { title: @title, author: @author, rating: nil, img: @img_link, genre: @genre, description: @desc, id: current_user.id }, class: 'btn btn-width' %>
-
-            <%= button_to 'Love it!', '/books', class: 'btn btn-width', method: :post, params: { title: @title, author: @author, rating: nil, img: @img_link, genre: @genre, description: @desc, id: current_user.id } %>
+            <%= render 'recommendations/buttons' %>
         </div>
     </div>
 </div>
