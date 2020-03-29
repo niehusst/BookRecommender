@@ -9,9 +9,10 @@ Rails.application.routes.draw do
   get '/recommend', to: 'recommendations#recommend'
 
   get 'recommend/book/random', to: 'recommendations#random'
-  get 'recommend/book/popular(/:page)', to: 'recommendations#popular'
-  get 'recommend/book/match(/:page)', to: 'recommendations#match'
+  get 'recommend/book/popular', to: 'recommendations#popular'
+  get 'recommend/book/match', to: 'recommendations#match'
   get 'recommend/book/genre/:genre(/:page)', to: 'recommendations#genre'
+  post 'recommend/book', to: 'recommendations#create_and_rate', as: :book_create_and_rate
 
   get 'profile/', to: 'profile#profile'
 
