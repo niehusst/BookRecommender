@@ -11,7 +11,7 @@ class RecommendationsController < ApplicationController
     random_rec
   end
   
-  # GET /recommend/book/genre={enum}
+  # GET /recommend/book/genre/genre={enum}/page=int
   def genre
     setup
     genre_rec
@@ -31,6 +31,29 @@ class RecommendationsController < ApplicationController
   
   # GET /recommend
   def recommend
+  end
+
+  # POST /recommned/book
+  def create_and_rate
+    # check if book to create already exists in user's reading history
+    book = Book.find_by(user_id: params[:id], title: params[:title])
+    # create new book unless it already existed
+    unless book
+      book = Book.new({ title: params[:title], 
+                         author: params[:author], 
+                         img: params[:img], 
+                         genre: params[:genre], 
+                         description: params[:description], 
+                         user: current_user })
+      book.save
+      if !book.valid?
+        flash[:alert] = 'Failed to add book to profile'
+        redirect_to root_path and return
+      end
+    end
+    
+    # send to rating page for the book
+    redirect_to :controller => 'books', :action => 'edit', :id => book.id 
   end
 
   private
