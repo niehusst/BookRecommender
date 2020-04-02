@@ -65,7 +65,7 @@ a:hover {
     color: inherit;
 }
 
-form {
+form.button_to {
     display: inline-block;
 }
 
@@ -144,4 +144,18 @@ a.navb:hover {
 
 .desc-label {
   font-size: 0.5em;
+}
+
+/* flash styling */
+.flash {
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.red-alert {
+    background: #ff9999;
+}
+
+.green-notice {
+    background: lightgreen;
 }
