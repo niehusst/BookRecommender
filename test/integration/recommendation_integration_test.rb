@@ -44,7 +44,7 @@ class RecommendationIntegrationTest< Capybara::Rails::TestCase
         assert_current_path '/recommend/book/random'
 
         prev_book_num = @user.books.size
-        click_on 'Love it!'
+        click_on 'Save Recommendation'
         assert_current_path '/'
         assert_equal prev_book_num+1, @user.books.size, "Number of books belonging to user didn't change"
     end
@@ -56,7 +56,7 @@ class RecommendationIntegrationTest< Capybara::Rails::TestCase
         click_on 'SURPRISE ME'
         assert_current_path '/recommend/book/random'
 
-        click_on 'Nope'
+        click_on 'Next Recommendation'
         # location doesnt change
         assert_current_path '/recommend/book/random'
     end
@@ -95,7 +95,7 @@ class RecommendationIntegrationTest< Capybara::Rails::TestCase
         assert_current_path '/recommend/book/popular'
 
         prev_book_num = @user.books.size
-        click_on 'Love it!'
+        click_on 'Save Recommendation'
         assert_current_path '/'
         assert_equal prev_book_num+1, @user.books.size, "Number of books belonging to user didn't change"
     end
@@ -107,7 +107,7 @@ class RecommendationIntegrationTest< Capybara::Rails::TestCase
         click_on 'OTHERS ARE READING'
         assert_current_path '/recommend/book/popular'
 
-        click_on 'Nope'
+        click_on 'Next Recommendation'
         # location doesnt change
         assert_current_path '/recommend/book/popular'
     end
@@ -147,7 +147,7 @@ class RecommendationIntegrationTest< Capybara::Rails::TestCase
         assert_current_path '/recommend/book/match'
 
         prev_book_num = @user.books.size
-        click_on 'Love it!'
+        click_on 'Save Recommendation'
         assert_current_path '/'
         assert_equal prev_book_num+1, @user.books.size, "Number of books belonging to user didn't change"
     end
@@ -159,7 +159,7 @@ class RecommendationIntegrationTest< Capybara::Rails::TestCase
         click_on 'FOR ME'
         assert_current_path '/recommend/book/match'
 
-        click_on 'Nope'
+        click_on 'Next Recommendation'
         # location doesnt change
         assert_current_path '/recommend/book/match'
     end
@@ -198,7 +198,7 @@ class RecommendationIntegrationTest< Capybara::Rails::TestCase
         assert_current_path '/recommend/book/genre/fantasy'
 
         prev_book_num = @user.books.size
-        click_on 'Love it!'
+        click_on 'Save Recommendation'
         assert_current_path '/'
         assert_equal prev_book_num+1, @user.books.size, "Number of books belonging to user didn't change"
     end
@@ -210,10 +210,10 @@ class RecommendationIntegrationTest< Capybara::Rails::TestCase
         click_on 'Fantasy'
         assert_current_path '/recommend/book/genre/fantasy'
 
-        click_on 'Nope'
+        click_on 'Next Recommendation'
         # page increment
         assert_current_path '/recommend/book/genre/fantasy/1'
-        click_on 'Nope'
+        click_on 'Next Recommendation'
         assert_current_path '/recommend/book/genre/fantasy/2'
     end
 
