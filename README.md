@@ -12,6 +12,10 @@ Tests also require no setup and can be executed with just `rails t`.
 
 Deploying consists of pushing to the master branch of the heroku remote.
 
+### Learning achievments
+
+In the development of this project, I learned a lot about MVC, Ruby on Rails,
+and hosting with Heroku. 
 
 ## Author
 
